@@ -10,6 +10,7 @@ import com.walletapplication.payme.model.outbound.LoginResponse;
 import com.walletapplication.payme.repository.AccountRepo;
 import com.walletapplication.payme.security.JwtUtils;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,10 +25,20 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
+    @Autowired
     private final AuthenticationManager authenticationManager;
+
+    @Autowired
     private final JwtUtils jwtUtils;
-    private final AccountRepo accountRepo;
+
+    @Autowired
+    private AccountRepo accountRepo;
+
+    @Autowired
     private PasswordEncoder passwordEncoder;
+
+
+    @Autowired
     private SequenceGenerator sequenceGenerator;
 
     public LoginResponse login(LoginRequest request) {
@@ -63,6 +74,7 @@ public class AuthenticationService {
                 .timestamp(LocalDateTime.now())
                 .email(account.getEmail())
                 .mobileNumber(account.getMobileNumber())
+                .name(account.getName())
                 .build();
     }
 

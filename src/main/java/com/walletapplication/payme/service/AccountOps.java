@@ -33,30 +33,29 @@ public class AccountOps {
 
 
         if (account.isEmpty()) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Wallet does not exists");
         } else {
             AccountResponse accountResponse = mapper.toAccountResponse(account.get());
-            accountResponse.setMessage("Account deleted successfully");
+            accountResponse.setMessage("Wallet deleted successfully");
             accountResponse.setAccountNo(account.get().getAccountNumber());
             accountResponse.setTimestamp(LocalDateTime.now());
             accountRepo.deleteById(accountNumber);
             return accountResponse;
         }
-
     }
 
     //    Update account details
     public AccountResponse updateAccount(AccountRequest accountRequest, String accountNumber) {
         Optional<Account> account = accountRepo.findById(accountNumber);
         if (account.isEmpty()) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Wallet does not exists");
         }
         Account updatedAccount = mapper.toAccount(accountRequest);
         updatedAccount.setAccountNumber(account.get().getAccountNumber());
         accountRepo.save(updatedAccount);
         AccountResponse accountResponse = mapper.toAccountResponse(account.get());
         accountResponse.setAccountNo(account.get().getAccountNumber());
-        accountResponse.setMessage("Account updated successfully");
+        accountResponse.setMessage("Wallet updated successfully");
         accountResponse.setTimestamp(LocalDateTime.now());
         return accountResponse;
     }
@@ -65,11 +64,11 @@ public class AccountOps {
     public AccountResponse getAccount(String accountNumber) {
         Optional<Account> account = accountRepo.findById(accountNumber);
         if (account.isEmpty()) {
-            throw new EntityNotFoundException();
+            throw new EntityNotFoundException("Wallet does not exists");
         } else {
             AccountResponse accountResponse = mapper.toAccountResponse(account.get());
             accountResponse.setAccountNo(account.get().getAccountNumber());
-            accountResponse.setMessage("Account reterived successfully");
+            accountResponse.setMessage("Wallet details reterived successfully");
             accountResponse.setTimestamp(LocalDateTime.now());
             return accountResponse;
         }

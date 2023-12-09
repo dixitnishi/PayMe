@@ -3,6 +3,7 @@ package com.walletapplication.payme.security;
 import com.walletapplication.payme.model.entity.Account;
 import com.walletapplication.payme.repository.AccountRepo;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -19,6 +20,8 @@ import static com.walletapplication.payme.model.exceptions.GlobalErrorCode.ERROR
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
+
+    @Autowired
     private AccountRepo accountRepo;
 
     @Override
