@@ -19,8 +19,6 @@ public class UserDetailsImpl implements UserDetails {
 
     private String email;
 
-    private String mobileNumber;
-
     private String password;
 
     private double balance;
@@ -30,7 +28,6 @@ public class UserDetailsImpl implements UserDetails {
                 account.getAccountNumber(),
                 account.getName(),
                 account.getEmail(),
-                account.getMobileNumber(),
                 account.getPassword(),
                 account.getBalance()
         );
@@ -44,7 +41,7 @@ public class UserDetailsImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return accountNumber;
+        return email;
     }
 
     @Override

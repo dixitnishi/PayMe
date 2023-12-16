@@ -10,5 +10,9 @@ public class EntityAlreadyExistsException extends GlobalWalletException{
         super("Requested Entity Already Exists", LocalDateTime.now(),INVALID_EMAIL);
     }
 
+    public EntityAlreadyExistsException(String message){
+        super(message, LocalDateTime.now(),INVALID_EMAIL);
+    }
+
 
 }

@@ -18,6 +18,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                 .badRequest()
                 .body(ErrorResponse.builder()
                         .code(globalWalletException.getCode())
+                        .message(globalWalletException.getMessage())
                         .timeStamp(globalWalletException.getTimeStamp())
                         .build());
     }

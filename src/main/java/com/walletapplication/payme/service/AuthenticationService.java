@@ -43,7 +43,7 @@ public class AuthenticationService {
 
     public LoginResponse login(LoginRequest request) {
         final Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getAccountNo().trim(), request.getPassword().trim()));
+                new UsernamePasswordAuthenticationToken(request.getEmail().trim(), request.getPassword().trim()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
@@ -56,13 +56,12 @@ public class AuthenticationService {
 
     public AccountResponse signup(AccountRequest request) {
         if (accountRepo.existsByEmail(request.getEmail().trim()))
-            throw new EntityAlreadyExistsException();
+            throw new EntityAlreadyExistsException("Email already associated with existing account, please create wallet using different email. Thanks!");
 
         var account = Account.builder()
                 .email(request.getEmail())
                 .name(request.getName())
                 .password(passwordEncoder.encode(request.getPassword()))
-                .mobileNumber(request.getMobileNumber())
                 .accountNumber(String.valueOf(sequenceGenerator.generateSequence(Account.SEQUENCE_NAME)))
                 .balance(0)
                 .build();
@@ -73,7 +72,6 @@ public class AuthenticationService {
                 .message("Wallet registered successfully")
                 .timestamp(LocalDateTime.now())
                 .email(account.getEmail())
-                .mobileNumber(account.getMobileNumber())
                 .name(account.getName())
                 .build();
     }

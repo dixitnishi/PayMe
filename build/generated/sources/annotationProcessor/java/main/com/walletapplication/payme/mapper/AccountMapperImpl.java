@@ -7,7 +7,7 @@ import javax.annotation.processing.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-12-09T09:27:31+0530",
+    date = "2023-12-16T15:47:45+0530",
     comments = "version: 1.5.5.Final, compiler: IncrementalProcessingEnvironment from gradle-language-java-7.6.1.jar, environment: Java 17.0.5 (Amazon.com Inc.)"
 )
 public class AccountMapperImpl implements AccountMapper {
@@ -22,7 +22,6 @@ public class AccountMapperImpl implements AccountMapper {
 
         account.name( accountRequest.getName() );
         account.email( accountRequest.getEmail() );
-        account.mobileNumber( accountRequest.getMobileNumber() );
         account.password( accountRequest.getPassword() );
 
         return account.build();
@@ -38,7 +37,6 @@ public class AccountMapperImpl implements AccountMapper {
 
         accountResponse.name( account.getName() );
         accountResponse.email( account.getEmail() );
-        accountResponse.mobileNumber( account.getMobileNumber() );
 
         return accountResponse.build();
     }

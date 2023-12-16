@@ -13,6 +13,5 @@ import lombok.Setter;
 public class AccountRequest {
     private String name;
     private String email;
-    private String mobileNumber;
     private String password;
 }

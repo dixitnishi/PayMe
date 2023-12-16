@@ -1,0 +1,12 @@
+
+x
+java:S1128"VRemove this unused import 'org.springframework.data.mongodb.core.index.CompoundIndex'.(è´™¨üÿÿÿÿ8ËÃ¥„Ç1
+l
+java:S1128	"ORemove this unused import 'org.springframework.security.core.GrantedAuthority'.(½Á±ÿ8ËÃ¥„Ç1
+s
+java:S1128
+"VRemove this unused import 'org.springframework.security.core.userdetails.UserDetails'.(ÊÁ¥8ÌÃ¥„Ç1
+S
+java:S1128"1Remove this unused import 'java.util.Collection'.(¹ÉĞšùÿÿÿÿ8ÌÃ¥„Ç1
+T
+java:S1128"2Remove this unused import 'java.util.Collections'.(¢³ïÓşÿÿÿÿ8ÌÃ¥„Ç1

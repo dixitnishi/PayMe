@@ -10,5 +10,5 @@ spring:
       auto-index-creation: true
 app:
   security:
-    jwtExpirationMs: 60000
+    jwtExpirationMs: 6000
     jwtSecret: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKk8JeKApCCk8r+9skqvmJ71tlTQpPNAAJYaT9U/q9EllTLrIjrbaNirS6nH+TaJ7YVp/NUmAuaRHGHDldKeJl8CAwEAAQ==
