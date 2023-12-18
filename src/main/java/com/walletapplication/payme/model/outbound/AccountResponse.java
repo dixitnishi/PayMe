@@ -14,5 +14,5 @@ public class AccountResponse {
     private String message;
     private String name;
     private String email;
-    private String mobileNumber;
+    private Double balance;
 }

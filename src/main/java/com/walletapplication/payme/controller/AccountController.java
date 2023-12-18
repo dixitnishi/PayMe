@@ -21,7 +21,7 @@ public class AccountController {
         return new ResponseEntity<>(accountOperations.deleteAccount(accountNo),HttpStatus.OK);
     }
 
-    @PutMapping("/update/{accountNo}")
+    @PatchMapping("/update/{accountNo}")
     public ResponseEntity<?> update(@RequestBody AccountRequest accountRequest, @PathVariable String accountNo){
         return new ResponseEntity<>(accountOperations.updateAccount(accountRequest,accountNo),HttpStatus.OK);
     }

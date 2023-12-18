@@ -3,6 +3,8 @@ package com.walletapplication.payme.service;
 
 import com.walletapplication.payme.model.entity.Account;
 import com.walletapplication.payme.model.exceptions.EntityAlreadyExistsException;
+import com.walletapplication.payme.model.exceptions.GlobalWalletException;
+import com.walletapplication.payme.model.exceptions.InvalidDetailsEnteredException;
 import com.walletapplication.payme.model.inbound.AccountRequest;
 import com.walletapplication.payme.model.inbound.LoginRequest;
 import com.walletapplication.payme.model.outbound.AccountResponse;
@@ -50,13 +52,20 @@ public class AuthenticationService {
         return LoginResponse
                 .builder()
                 .token(jwt)
+                .accountId(accountRepo.findByEmail(request.getEmail()).get().getAccountNumber())
                 .build();
     }
 
 
     public AccountResponse signup(AccountRequest request) {
+        if(request.getEmail().trim().isEmpty()){
+            throw new InvalidDetailsEnteredException("Please enter a valid email. Thanks!");
+        }
+
         if (accountRepo.existsByEmail(request.getEmail().trim()))
             throw new EntityAlreadyExistsException("Email already associated with existing account, please create wallet using different email. Thanks!");
+
+
 
         var account = Account.builder()
                 .email(request.getEmail())
@@ -69,10 +78,11 @@ public class AuthenticationService {
         accountRepo.save(account);
         return AccountResponse.builder()
                 .accountNo(account.getAccountNumber())
-                .message("Wallet registered successfully")
+                .message("Wallet created successfully. Please try and login and continue using services...")
                 .timestamp(LocalDateTime.now())
                 .email(account.getEmail())
                 .name(account.getName())
+                .balance(account.getBalance())
                 .build();
     }
 

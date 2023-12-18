@@ -3,6 +3,7 @@ package com.walletapplication.payme.model.exceptions;
 
 import com.walletapplication.payme.model.outbound.ErrorResponse;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -23,12 +24,13 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                         .build());
     }
 
-    @ExceptionHandler({Exception.class})
-    protected ResponseEntity handleException(Exception e, Locale locale) {
-        return ResponseEntity
-                .badRequest()
-                .body("Exception occur inside API " + e);
-    }
+
+//    @ExceptionHandler({Exception.class})
+//    protected ResponseEntity handleException(Exception e, Locale locale) {
+//        return ResponseEntity
+//                .badRequest()
+//                .body("Error occured inside "+ e.getMessage()+" : "+e.getLocalizedMessage());
+//    }
 
 
 }

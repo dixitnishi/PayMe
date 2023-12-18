@@ -115,7 +115,8 @@ public class TransactionOps {
     }
 
     public List<Transaction> getTransactions(String accountNo) {
-        return transactionRepo.findBySenderAccountNumberOrReceiverAccountNumber(accountNo, accountNo);
+//        return transactionRepo.findBySenderAccountNumberOrReceiverAccountNumber(accountNo, accountNo);
+        return transactionRepo.findBySenderAccountNumber(accountNo);
     }
 
     public String generateTransactionId() {
