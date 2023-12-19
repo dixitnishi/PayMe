@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  smtp:
+    image: namshi/smtp
+    ports:
+      - "25:1025"
+    depends_on:
+      - mailhog
+
+  mailhog:
+    image: mailhog/mailhog
+    ports:
+      - "8025:8025"

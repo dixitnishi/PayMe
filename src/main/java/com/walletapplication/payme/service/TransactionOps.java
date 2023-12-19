@@ -1,5 +1,6 @@
 package com.walletapplication.payme.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.walletapplication.payme.mapper.TransactionMapper;
 import com.walletapplication.payme.model.entity.Account;
 import com.walletapplication.payme.model.entity.Transaction;
@@ -7,6 +8,7 @@ import com.walletapplication.payme.model.exceptions.EntityNotFoundException;
 import com.walletapplication.payme.model.exceptions.GlobalErrorCode;
 import com.walletapplication.payme.model.exceptions.GlobalWalletException;
 import com.walletapplication.payme.model.inbound.TransactionRequest;
+import com.walletapplication.payme.model.outbound.EmailDetails;
 import com.walletapplication.payme.model.outbound.TransactionResponse;
 import com.walletapplication.payme.repository.AccountRepo;
 import com.walletapplication.payme.repository.TransactionRepo;
@@ -31,6 +33,10 @@ public class TransactionOps {
     private TransactionRepo transactionRepo;
     @Autowired
     private AccountRepo accountRepo;
+
+    @Autowired
+    private EmailService emailService;
+
     @Transactional
     public TransactionResponse sendMoney(TransactionRequest transactionRequest) {
         Account senderAccount = validateAccountExists(transactionRequest.getSenderAccountNumber());
@@ -92,7 +98,7 @@ public class TransactionOps {
 
 
     @Transactional
-    public TransactionResponse addMoney(TransactionRequest transactionRequest) {
+    public TransactionResponse addMoney(TransactionRequest transactionRequest) throws JsonProcessingException {
         Account account = validateAccountExists(transactionRequest.getSenderAccountNumber());
         double amountToBeAdded = transactionRequest.getAmount();
         double initialAmount = account.getBalance();
@@ -111,6 +117,11 @@ public class TransactionOps {
         TransactionResponse transactionResponse = transactionMapper.toTransactionResponse(transaction);
         transactionResponse.setStatus("SUCCESS");
         transactionResponse.setTimestamp(LocalDateTime.now());
+        emailService.sendEmail(EmailDetails.builder()
+                .receiverEmail(account.getEmail())
+                .body(transaction.getDescription())
+                .subject("Money Added To Wallet")
+                .build());
         return transactionResponse;
     }
 

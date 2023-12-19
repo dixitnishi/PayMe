@@ -1,4 +1,5 @@
 package com.walletapplication.payme.controller;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.walletapplication.payme.model.entity.Transaction;
 import com.walletapplication.payme.model.inbound.TransactionRequest;
 import com.walletapplication.payme.model.outbound.TransactionResponse;
@@ -24,7 +25,7 @@ public class TransactionController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity<TransactionResponse> addMoney(@RequestBody TransactionRequest transactionRequest){
+    public ResponseEntity<TransactionResponse> addMoney(@RequestBody TransactionRequest transactionRequest) throws JsonProcessingException {
         return new ResponseEntity<>(transactionOps.addMoney(transactionRequest), HttpStatus.OK);
     }
 
