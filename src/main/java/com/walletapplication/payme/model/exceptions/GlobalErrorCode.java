@@ -6,5 +6,6 @@ public class GlobalErrorCode {
     public static final String INVALID_AMOUNT = "WALLET_CORE_SERVICE - 1002";
     public static final String INVALID_EMAIL = "EMAIL_ALREADY_ASSOCIATED_WITH_ACCOUNT_TRY_NEW_EMAIL - 1003";
     public static final String INVALID_EMAIL_SIGNUP = "1004";
+    public static final String OBJECT_CONVERSION_ERROR = "1005";
 
 }

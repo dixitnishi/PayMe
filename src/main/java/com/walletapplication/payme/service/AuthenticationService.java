@@ -63,7 +63,7 @@ public class AuthenticationService {
         }
 
         if (accountRepo.existsByEmail(request.getEmail().trim()))
-            throw new EntityAlreadyExistsException("Email already associated with existing account, please create wallet using different email. Thanks!");
+            throw new EntityAlreadyExistsException("Email already associated with existing wallet, please create wallet using different email. Thanks!");
 
 
 

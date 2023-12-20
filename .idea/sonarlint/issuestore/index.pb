@@ -83,3 +83,16 @@ u
 Esrc/main/java/com/walletapplication/payme/utils/EmailQueueWorker.java,3/8/386a6037a4c195cf7369e9f9b5306ecbc989e930
 B
 docker-compose.yml,3/5/35b8c13cf2eb2a194eada000eb310d65aed53b2a
+t
+Dsrc/main/java/com/walletapplication/payme/model/entity/Cashback.java,8/2/8251b18867d73e829eee8f68640dd399ed8366dd
+|
+Lsrc/main/java/com/walletapplication/payme/model/entity/DatabaseSequence.java,5/3/53b52baed961baa642e02a2c990efdb4193d06e0
+
+Osrc/main/java/com/walletapplication/payme/model/outbound/CashbacksResponse.java,4/a/4aa79e49d2d40a6e2683a712450f0006beb6516d
+v
+Fsrc/main/java/com/walletapplication/payme/repository/CashbackRepo.java,9/d/9d560371a50f1866c867f207719331090037cd3c
+w
+Gsrc/main/java/com/walletapplication/payme/mapper/TransactionMapper.java,1/4/14fba3a449d7904541e80d914b55610815b9e513
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302
