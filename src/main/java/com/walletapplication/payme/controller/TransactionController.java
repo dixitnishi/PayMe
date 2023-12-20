@@ -1,5 +1,6 @@
 package com.walletapplication.payme.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.walletapplication.payme.model.entity.Cashback;
 import com.walletapplication.payme.model.entity.Transaction;
 import com.walletapplication.payme.model.inbound.TransactionRequest;
 import com.walletapplication.payme.model.outbound.TransactionResponse;
@@ -32,6 +33,11 @@ public class TransactionController {
     @GetMapping("/get/{accountNo}")
     public ResponseEntity<List<Transaction>> getTransactions(@PathVariable String accountNo){
         return new ResponseEntity<>(transactionOps.getTransactions(accountNo), HttpStatus.OK);
+    }
+
+    @GetMapping("/cashback/{accountNo}")
+    public ResponseEntity<List<Cashback>> getCashbacks(@PathVariable String accountNo){
+        return new ResponseEntity<>(transactionOps.getCashbacks(accountNo), HttpStatus.OK);
     }
 
 }
