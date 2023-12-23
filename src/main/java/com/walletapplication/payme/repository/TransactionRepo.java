@@ -7,7 +7,5 @@ import java.util.List;
 
 public interface TransactionRepo extends MongoRepository<Transaction,String> {
 
-    List<Transaction> findBySenderAccountNumber(String senderAccountNumber);
-    List<Transaction> findBySenderAccountNumberOrReceiverAccountNumber(String senderAccountNumber, String receiverAccountNumber);
-
+    List<Transaction> findByAssociatedAccount(String accountNumber);
 }

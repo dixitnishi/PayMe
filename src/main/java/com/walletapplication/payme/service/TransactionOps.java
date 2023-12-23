@@ -8,12 +8,14 @@ import com.walletapplication.payme.model.entity.Transaction;
 import com.walletapplication.payme.model.exceptions.EntityNotFoundException;
 import com.walletapplication.payme.model.exceptions.GlobalErrorCode;
 import com.walletapplication.payme.model.exceptions.GlobalWalletException;
+import com.walletapplication.payme.model.exceptions.InvalidDetailsEnteredException;
 import com.walletapplication.payme.model.inbound.TransactionRequest;
 import com.walletapplication.payme.model.outbound.EmailDetails;
 import com.walletapplication.payme.model.outbound.TransactionResponse;
 import com.walletapplication.payme.repository.AccountRepo;
 import com.walletapplication.payme.repository.CashbackRepo;
 import com.walletapplication.payme.repository.TransactionRepo;
+import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +30,7 @@ import java.util.UUID;
 
 import static com.walletapplication.payme.model.enums.TRANSACTIONTYPE.CREDIT;
 
+@Slf4j(topic = "TransactionOps")
 @Service
 public class TransactionOps {
 
@@ -49,12 +52,17 @@ public class TransactionOps {
 
     @Transactional
     public TransactionResponse sendMoney(TransactionRequest transactionRequest) {
+        if(transactionRequest.getSenderAccountNumber().equals(transactionRequest.getReceiverAccountNumber())){
+            log.error("Receiver wallet: {} and sender wallet: {} can't be same",transactionRequest.getReceiverAccountNumber(),transactionRequest.getSenderAccountNumber());
+            throw new InvalidDetailsEnteredException("Receiver and sender account number can't be same");
+        }
         Account senderAccount = validateAccountExists(transactionRequest.getSenderAccountNumber());
         Account receiverAccount = validateAccountExists(transactionRequest.getReceiverAccountNumber());
         double cashback = calculateCashback(transactionRequest.getAmount());
         String transactionId = generateTransactionId();
         validateAndTransferAmount(senderAccount, receiverAccount, transactionRequest.getAmount(), cashback);
         saveTransactions(senderAccount, receiverAccount, transactionRequest, transactionId);
+        log.info("Transaction saved, transactionId: {}",transactionId);
         saveCashback(senderAccount, cashback, transactionId, false);
 
         //      Sending the async email sending task
@@ -68,6 +76,8 @@ public class TransactionOps {
                 .body("Amount RS." + transactionRequest.getAmount() + " send to " + receiverAccount.getAccountNumber()+" and you received a cashback of RS."+cashback+" which is added to your wallet balance.")
                 .subject("Amount debited")
                 .build());
+
+        log.info("Emails triggered to respective sender and receivers email id");
 
         return TransactionResponse
                 .builder()
@@ -97,6 +107,7 @@ public class TransactionOps {
         transactionSenderPrespec.setDescription("Amount transferred to wallet " + receiverAccount.getAccountNumber());
         transactionSenderPrespec.setTransactionTime(LocalDateTime.now());
         transactionSenderPrespec.setTransactionId(transactionId);
+        transactionSenderPrespec.setAssociatedAccount(senderAccount.getAccountNumber());
         transactionRepo.save(transactionSenderPrespec);
 
         Transaction transactionReceiverPrespec = transactionMapper.toTransaction(transactionRequest);
@@ -104,6 +115,7 @@ public class TransactionOps {
         transactionReceiverPrespec.setTransactionTime(LocalDateTime.now());
         transactionReceiverPrespec.setTransactionType(CREDIT);
         transactionReceiverPrespec.setTransactionId(transactionId);
+        transactionReceiverPrespec.setAssociatedAccount(receiverAccount.getAccountNumber());
         transactionRepo.save(transactionReceiverPrespec);
     }
 
@@ -150,10 +162,13 @@ public class TransactionOps {
         transaction.setDescription("Money added to wallet successfully");
         transaction.setReceiverAccountNumber("NA");
         transaction.setTransactionId(transactionId);
+        transaction.setAssociatedAccount(account.getAccountNumber());
         transactionRepo.save(transaction);
+        log.info("Transaction saved, transactionId: {}",transactionId);
 
 //      Saving Cashback in collection
         saveCashback(account, cashback, transactionId, true);
+
 
 //      Queuing the email sending task to redis
         emailService.sendEmail(EmailDetails.builder()
@@ -161,6 +176,7 @@ public class TransactionOps {
                 .body(transaction.getDescription())
                 .subject("Money Added To Wallet")
                 .build());
+
 
         return TransactionResponse.builder()
                 .cashbackReceived(cashback)
@@ -177,7 +193,7 @@ public class TransactionOps {
     }
 
     public List<Transaction> getTransactions(String accountNo) {
-        return transactionRepo.findBySenderAccountNumber(accountNo);
+        return transactionRepo.findByAssociatedAccount(accountNo);
     }
 
     public List<Cashback> getCashbacks(String accountNo) {

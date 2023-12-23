@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Transaction {
-    @Id
+
     private String transactionId;
     private LocalDateTime transactionTime;
     private String description;
@@ -22,4 +22,5 @@ public class Transaction {
     private TRANSACTIONTYPE transactionType;
     private String senderAccountNumber;
     private String receiverAccountNumber;
+    private String associatedAccount;
 }

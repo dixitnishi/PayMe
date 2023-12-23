@@ -1,5 +1,3 @@
 
 r
-java:S36557"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(£œ—Ëÿÿÿÿÿ8À¡æÇ1
-|
-java:S1128"_Remove this unused import 'com.walletapplication.payme.model.exceptions.GlobalWalletException'.(¿Ï¹ú8ÁÚ¤æÇ1
+java:S36558"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(£œ—Ëÿÿÿÿÿ8³ßÿ§É1

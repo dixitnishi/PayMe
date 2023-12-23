@@ -12,6 +12,7 @@ import com.walletapplication.payme.model.outbound.LoginResponse;
 import com.walletapplication.payme.repository.AccountRepo;
 import com.walletapplication.payme.security.JwtUtils;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,7 +23,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-
+@Slf4j(topic = "AuthenticationService")
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
@@ -59,12 +60,14 @@ public class AuthenticationService {
 
     public AccountResponse signup(AccountRequest request) {
         if(request.getEmail().trim().isEmpty()){
+            log.error("Error while processing email, invalid email");
             throw new InvalidDetailsEnteredException("Please enter a valid email. Thanks!");
         }
 
-        if (accountRepo.existsByEmail(request.getEmail().trim()))
+        if (accountRepo.existsByEmail(request.getEmail().trim())) {
+            log.error("Error while processing email {}", request.getEmail());
             throw new EntityAlreadyExistsException("Email already associated with existing wallet, please create wallet using different email. Thanks!");
-
+        }
 
 
         var account = Account.builder()
@@ -76,6 +79,7 @@ public class AuthenticationService {
                 .build();
 
         accountRepo.save(account);
+        log.info("Wallet created with wallet id: {}",account.getAccountNumber());
         return AccountResponse.builder()
                 .accountNo(account.getAccountNumber())
                 .message("Wallet created successfully. Please try and login and continue using services...")

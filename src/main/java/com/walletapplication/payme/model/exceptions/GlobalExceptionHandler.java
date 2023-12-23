@@ -23,14 +23,4 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
                         .timeStamp(globalWalletException.getTimeStamp())
                         .build());
     }
-
-
-//    @ExceptionHandler({Exception.class})
-//    protected ResponseEntity handleException(Exception e, Locale locale) {
-//        return ResponseEntity
-//                .badRequest()
-//                .body("Error occured inside "+ e.getMessage()+" : "+e.getLocalizedMessage());
-//    }
-
-
 }
