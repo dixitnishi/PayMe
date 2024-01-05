@@ -82,7 +82,7 @@ public class TransactionOps {
         return TransactionResponse
                 .builder()
                 .status("SUCCESS")
-                .description("Amount transferred from wallet " + receiverAccount.getAccountNumber())
+                .description("Amount transferred to wallet " + receiverAccount.getAccountNumber()+". Congrats cashback received Rs."+cashback+".")
                 .cashbackReceived(cashback)
                 .timestamp(LocalDateTime.now())
                 .build();
@@ -159,7 +159,7 @@ public class TransactionOps {
 
         Transaction transaction = transactionMapper.toTransaction(transactionRequest);
         transaction.setTransactionTime(LocalDateTime.now());
-        transaction.setDescription("Money added to wallet successfully");
+        transaction.setDescription("Congrats you received a cashback of RS."+cashback+".");
         transaction.setReceiverAccountNumber("NA");
         transaction.setTransactionId(transactionId);
         transaction.setAssociatedAccount(account.getAccountNumber());
@@ -174,7 +174,7 @@ public class TransactionOps {
         emailService.sendEmail(EmailDetails.builder()
                 .receiverEmail(account.getEmail())
                 .body(transaction.getDescription())
-                .subject("Money Added To Wallet")
+                .subject("Money Added To Wallet. Amount Rs."+amountToBeAdded+" you received a cashback of Rs."+cashback+". \n Thanks!")
                 .build());
 
 

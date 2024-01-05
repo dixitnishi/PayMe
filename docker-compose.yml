@@ -1,14 +1,35 @@
 version: '3'
 
 services:
-  smtp:
-    image: namshi/smtp
+  backend-payme:
+    build: ./
     ports:
-      - "25:1025"
+      - "8080:8080"
     depends_on:
-      - mailhog
-
-  mailhog:
-    image: mailhog/mailhog
+      - mongodb
+#  frontend-payme:
+#    image: frontend-payme
+#    ports:
+#      - "3000:3000"
+#    depends_on:
+#      - backend-payme
+  mongodb:
+    image: mongo
     ports:
-      - "8025:8025"
+      - "27017:27017"
+    depends_on:
+      - redis_queue
+    volumes:
+      - mongodb-data:/data/db
+  redis_queue:
+    image: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data/redis
+
+
+
+volumes:
+  mongodb-data:
+  redis-data:
