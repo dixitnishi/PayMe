@@ -1,0 +1,10 @@
+I21:39:21.216 [Test worker] ERROR AccountOps -- Wallet does not exist: 42
+Z21:39:21.246 [Test worker] INFO AccountOps -- Wallet reterived successfully, wallet id 42
+X21:39:21.267 [Test worker] INFO AccountOps -- Wallet updated successfully, wallet id 42
+I21:39:21.281 [Test worker] ERROR AccountOps -- Wallet does not exist: 42
+X21:39:21.306 [Test worker] INFO AccountOps -- Wallet deleted successfully, wallet id 42
+
+I21:39:21.330 [Test worker] ERROR AccountOps -- Wallet does not exist: 42
+Z21:39:21.728 [Test worker] INFO AuthenticationService -- Wallet created with wallet id: 1
+f21:39:21.750 [Test worker] ERROR AuthenticationService -- Error while processing email, invalid email
+l21:39:21.761 [Test worker] ERROR AuthenticationService -- Error while processing email jane.doe@example.org
