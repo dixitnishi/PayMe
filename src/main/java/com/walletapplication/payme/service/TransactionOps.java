@@ -22,6 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -49,6 +50,8 @@ public class TransactionOps {
     private CashbackRepo cashbackRepo;
 
     private Random random = new Random();
+
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     @Transactional
     public TransactionResponse sendMoney(TransactionRequest transactionRequest) {
@@ -126,8 +129,8 @@ public class TransactionOps {
             throw new GlobalWalletException("Insufficient balance in senders wallet", LocalDateTime.now(), GlobalErrorCode.INSUFFICIENT_BALANCE);
         }
         validateAmount(transferAmount);
-        senderAccount.setBalance(intialSenderAccBal - transferAmount + cashback);
-        receiverAccount.setBalance(intialReceiverAccBal + transferAmount);
+        senderAccount.setBalance(Double.parseDouble(df.format(intialSenderAccBal - transferAmount + cashback)));
+        receiverAccount.setBalance(Double.parseDouble(df.format(intialReceiverAccBal + transferAmount)));
         accountRepo.save(senderAccount);
         accountRepo.save(receiverAccount);
     }
@@ -150,7 +153,7 @@ public class TransactionOps {
         Account account = validateAccountExists(transactionRequest.getSenderAccountNumber());
         double initialAmount = account.getBalance();
         double cashback = calculateCashback(amountToBeAdded);
-        account.setBalance(initialAmount + amountToBeAdded + cashback);
+        account.setBalance(Double.parseDouble(df.format(initialAmount + amountToBeAdded + cashback)));
         accountRepo.save(account);
 
 //      Saving the transaction in collection
@@ -180,7 +183,7 @@ public class TransactionOps {
 
         return TransactionResponse.builder()
                 .cashbackReceived(cashback)
-                .description("Money added to wallet")
+                .description("Money Added To Wallet. Amount Rs."+amountToBeAdded+" you received a cashback of Rs."+cashback+". \n Thanks!")
                 .timestamp(LocalDateTime.now())
                 .status("SUCCESS")
                 .build();

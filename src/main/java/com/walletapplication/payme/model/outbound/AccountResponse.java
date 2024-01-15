@@ -15,4 +15,5 @@ public class AccountResponse {
     private String name;
     private String email;
     private Double balance;
+    private String token;
 }

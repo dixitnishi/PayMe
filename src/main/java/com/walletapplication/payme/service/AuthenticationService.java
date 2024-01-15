@@ -46,7 +46,7 @@ public class AuthenticationService {
 
     public LoginResponse login(LoginRequest request) {
         final Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(request.getEmail().trim(), request.getPassword().trim()));
+                new UsernamePasswordAuthenticationToken(request.getEmail().trim(), request.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
@@ -59,7 +59,7 @@ public class AuthenticationService {
 
 
     public AccountResponse signup(AccountRequest request) {
-        if(request.getEmail().trim().isEmpty()){
+        if(request.getEmail().isBlank()){
             log.error("Error while processing email, invalid email");
             throw new InvalidDetailsEnteredException("Please enter a valid email. Thanks!");
         }
@@ -80,6 +80,12 @@ public class AuthenticationService {
 
         accountRepo.save(account);
         log.info("Wallet created with wallet id: {}",account.getAccountNumber());
+        final Authentication authentication = authenticationManager.authenticate(
+                new UsernamePasswordAuthenticationToken(account.getEmail().trim(), request.getPassword()));
+
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
+
         return AccountResponse.builder()
                 .accountNo(account.getAccountNumber())
                 .message("Wallet created successfully. Please try and login and continue using services...")
@@ -87,6 +93,7 @@ public class AuthenticationService {
                 .email(account.getEmail())
                 .name(account.getName())
                 .balance(account.getBalance())
+                .token(jwt)
                 .build();
     }
 

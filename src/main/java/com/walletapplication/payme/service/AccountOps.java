@@ -11,6 +11,7 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.time.LocalDateTime;
 import java.util.Optional;
 
@@ -26,6 +27,8 @@ public class AccountOps {
 
 
     private final AccountMapper mapper = Mappers.getMapper(AccountMapper.class);
+
+    private static final DecimalFormat df = new DecimalFormat("0.00");
 
     //    Delete account
     public AccountResponse deleteAccount(String accountNumber) {
@@ -76,6 +79,7 @@ public class AccountOps {
             accountResponse.setAccountNo(account.get().getAccountNumber());
             accountResponse.setMessage("Wallet details reterived successfully");
             accountResponse.setTimestamp(LocalDateTime.now());
+            accountResponse.setBalance(Double.valueOf(df.format(account.get().getBalance())));
             log.info("Wallet reterived successfully, wallet id {}",accountNumber);
             return accountResponse;
         }
