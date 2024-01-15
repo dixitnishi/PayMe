@@ -77,10 +77,10 @@ public class AccountOps {
         } else {
             AccountResponse accountResponse = mapper.toAccountResponse(account.get());
             accountResponse.setAccountNo(account.get().getAccountNumber());
-            accountResponse.setMessage("Wallet details reterived successfully");
+            accountResponse.setMessage("Wallet details retrieved successfully");
             accountResponse.setTimestamp(LocalDateTime.now());
             accountResponse.setBalance(Double.valueOf(df.format(account.get().getBalance())));
-            log.info("Wallet reterived successfully, wallet id {}",accountNumber);
+            log.info("Wallet retrieved successfully, wallet id {}",accountNumber);
             return accountResponse;
         }
     }

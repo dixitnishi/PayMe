@@ -36,9 +36,6 @@ class AccountOpsTest {
     @MockBean
     private SequenceGenerator sequenceGenerator;
 
-    /**
-     * Method under test: {@link AccountOps#deleteAccount(String)}
-     */
     @Test
     void testDeleteAccount() {
         // Arrange
@@ -66,9 +63,7 @@ class AccountOpsTest {
         assertEquals(10.0d, actualDeleteAccountResult.getBalance().doubleValue());
     }
 
-    /**
-     * Method under test: {@link AccountOps#deleteAccount(String)}
-     */
+
     @Test
     void testDeleteAccount2() {
         // Arrange
@@ -89,9 +84,7 @@ class AccountOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link AccountOps#deleteAccount(String)}
-     */
+
     @Test
     void testDeleteAccount3() {
         // Arrange
@@ -103,9 +96,7 @@ class AccountOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link AccountOps#updateAccount(AccountRequest, String)}
-     */
+
     @Test
     void testUpdateAccount() {
         // Arrange
@@ -141,9 +132,7 @@ class AccountOpsTest {
         assertEquals(10.0d, actualUpdateAccountResult.getBalance().doubleValue());
     }
 
-    /**
-     * Method under test: {@link AccountOps#updateAccount(AccountRequest, String)}
-     */
+
     @Test
     void testUpdateAccount2() {
         // Arrange
@@ -165,9 +154,7 @@ class AccountOpsTest {
         verify(accountRepo).save(Mockito.<Account>any());
     }
 
-    /**
-     * Method under test: {@link AccountOps#updateAccount(AccountRequest, String)}
-     */
+
     @Test
     void testUpdateAccount3() {
         // Arrange
@@ -180,9 +167,7 @@ class AccountOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link AccountOps#updateAccount(AccountRequest, String)}
-     */
+
     @Test
     void testUpdateAccount4() {
         // Arrange
@@ -204,9 +189,7 @@ class AccountOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link AccountOps#getAccount(String)}
-     */
+
     @Test
     void testGetAccount() {
         // Arrange
@@ -232,9 +215,7 @@ class AccountOpsTest {
         assertEquals(10.0d, actualAccount.getBalance().doubleValue());
     }
 
-    /**
-     * Method under test: {@link AccountOps#getAccount(String)}
-     */
+
     @Test
     void testGetAccount2() {
         // Arrange
@@ -246,9 +227,7 @@ class AccountOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link AccountOps#getAccount(String)}
-     */
+
     @Test
     void testGetAccount3() {
         // Arrange

@@ -52,9 +52,7 @@ class AuthenticationServiceTest {
     @MockBean
     private SequenceGenerator sequenceGenerator;
 
-    /**
-     * Method under test: {@link AuthenticationService#login(LoginRequest)}
-     */
+
     @Test
     void testLogin() throws AuthenticationException {
         // Arrange
@@ -82,9 +80,7 @@ class AuthenticationServiceTest {
         assertEquals("ABC123", actualLoginResult.getToken());
     }
 
-    /**
-     * Method under test: {@link AuthenticationService#login(LoginRequest)}
-     */
+
     @Test
     void testLogin2() throws AuthenticationException {
         // Arrange
@@ -97,9 +93,7 @@ class AuthenticationServiceTest {
         verify(authenticationManager).authenticate(Mockito.<Authentication>any());
     }
 
-    /**
-     * Method under test: {@link AuthenticationService#login(LoginRequest)}
-     */
+
     @Test
     void testLogin3() {
         // Arrange
