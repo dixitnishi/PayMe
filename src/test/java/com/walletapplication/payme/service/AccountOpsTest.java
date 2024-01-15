@@ -210,7 +210,7 @@ class AccountOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
         assertEquals("42", actualAccount.getAccountNo());
         assertEquals("Name", actualAccount.getName());
-        assertEquals("Wallet details reterived successfully", actualAccount.getMessage());
+        assertEquals("Wallet details retrieved successfully", actualAccount.getMessage());
         assertEquals("jane.doe@example.org", actualAccount.getEmail());
         assertEquals(10.0d, actualAccount.getBalance().doubleValue());
     }

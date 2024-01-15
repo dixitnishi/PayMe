@@ -32,9 +32,6 @@ public class EmailQueueWorker {
     }
 
     private EmailDetails convertJsonToEmailDetails(String json) {
-        // Implement JSON to object conversion logic
-        // You can use Jackson, Gson, or any other library for this
-        // For simplicity, assume EmailDetails has fields like to, subject, body
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             return objectMapper.readValue(json, EmailDetails.class);

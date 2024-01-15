@@ -17,8 +17,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.walletapplication.payme.common.Constants.UNAUTHORIZED;
-import static com.walletapplication.payme.common.Constants.UNAUTHORIZED_ERROR;
 
 @Slf4j(topic = "AuthEntryPointJwt")
 @Component

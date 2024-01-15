@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.walletapplication.payme.service.AuthenticationServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-15T15:52:36" hostname="nishi" time="0.108">
+  <properties/>
+  <testcase name="testLogin()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.023"/>
+  <testcase name="testLogin2()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.005"/>
+  <testcase name="testLogin3()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.041"/>
+  <testcase name="testSignup2()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.008"/>
+  <testcase name="testSignup3()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.005"/>
+  <testcase name="testSignup4()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.004"/>
+  <testcase name="testSignup()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.006"/>
+  <system-out><![CDATA[21:22:36.996 [Test worker] INFO AuthenticationService -- Wallet created with wallet id: 1
+21:22:37.011 [Test worker] ERROR AuthenticationService -- Error while processing email, invalid email
+21:22:37.018 [Test worker] ERROR AuthenticationService -- Error while processing email jane.doe@example.org
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

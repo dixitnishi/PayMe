@@ -16,16 +16,6 @@ public class AccountController {
     @Autowired
     private AccountOps accountOperations;
 
-    @DeleteMapping("/delete/{accountNo}")
-    public ResponseEntity<?> delete(@PathVariable String accountNo){
-        return new ResponseEntity<>(accountOperations.deleteAccount(accountNo),HttpStatus.OK);
-    }
-
-    @PatchMapping("/update/{accountNo}")
-    public ResponseEntity<?> update(@RequestBody AccountRequest accountRequest, @PathVariable String accountNo){
-        return new ResponseEntity<>(accountOperations.updateAccount(accountRequest,accountNo),HttpStatus.OK);
-    }
-
     @GetMapping("/get/{accountNo}")
     public ResponseEntity<?> get(@PathVariable String accountNo){
         return new ResponseEntity<>(accountOperations.getAccount(accountNo),HttpStatus.OK);

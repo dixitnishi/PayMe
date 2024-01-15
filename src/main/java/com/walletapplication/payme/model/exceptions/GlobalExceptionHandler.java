@@ -3,7 +3,6 @@ package com.walletapplication.payme.model.exceptions;
 
 import com.walletapplication.payme.model.outbound.ErrorResponse;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;

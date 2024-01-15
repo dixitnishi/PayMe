@@ -22,9 +22,7 @@ public class EmailSender {
         message.setTo(emailDetails.getReceiverEmail());
         message.setSubject(emailDetails.getSubject());
         message.setText(emailDetails.getBody());
-
         message.setFrom(senderEmail);
-
         javaMailSender.send(message);
     }
 }
