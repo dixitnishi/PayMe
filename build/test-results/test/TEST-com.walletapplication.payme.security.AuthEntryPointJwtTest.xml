@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.security.AuthEntryPointJwtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:28:10" hostname="U-nishi" time="0.906">
+<testsuite name="com.walletapplication.payme.security.AuthEntryPointJwtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:11" hostname="U-nishi" time="0.91">
   <properties/>
-  <testcase name="commenceWhenStatusEqualsHttpServletResponseSC_UNAUTHORIZED()" classname="com.walletapplication.payme.security.AuthEntryPointJwtTest" time="0.899"/>
-  <testcase name="commenceWhenStatusNotEqualsHttpServletResponseSC_UNAUTHORIZED()" classname="com.walletapplication.payme.security.AuthEntryPointJwtTest" time="0.006"/>
-  <system-out><![CDATA[15:58:10.709 [Test worker] ERROR AuthEntryPointJwt -- Unauthorized error: 
-15:58:11.318 [Test worker] ERROR AuthEntryPointJwt -- Unauthorized error: String
+  <testcase name="commenceWhenStatusEqualsHttpServletResponseSC_UNAUTHORIZED()" classname="com.walletapplication.payme.security.AuthEntryPointJwtTest" time="0.902"/>
+  <testcase name="commenceWhenStatusNotEqualsHttpServletResponseSC_UNAUTHORIZED()" classname="com.walletapplication.payme.security.AuthEntryPointJwtTest" time="0.007"/>
+  <system-out><![CDATA[16:10:11.384 [Test worker] ERROR AuthEntryPointJwt -- Unauthorized error: 
+16:10:11.924 [Test worker] ERROR AuthEntryPointJwt -- Unauthorized error: String
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

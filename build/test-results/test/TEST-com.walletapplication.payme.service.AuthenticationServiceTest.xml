@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.service.AuthenticationServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:28:11" hostname="U-nishi" time="0.081">
+<testsuite name="com.walletapplication.payme.service.AuthenticationServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:12" hostname="U-nishi" time="0.075">
   <properties/>
   <testcase name="testLogin()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.012"/>
-  <testcase name="testLogin2()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.004"/>
-  <testcase name="testLogin3()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.028"/>
-  <testcase name="testSignup2()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.009"/>
-  <testcase name="testSignup3()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.005"/>
+  <testcase name="testLogin2()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.003"/>
+  <testcase name="testLogin3()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.031"/>
+  <testcase name="testSignup2()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.007"/>
+  <testcase name="testSignup3()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.003"/>
   <testcase name="testSignup4()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.003"/>
-  <testcase name="testSignup()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.007"/>
-  <system-out><![CDATA[15:58:12.023 [Test worker] INFO AuthenticationService -- Wallet created with wallet id: 1
-15:58:12.040 [Test worker] ERROR AuthenticationService -- Error while processing email, invalid email
-15:58:12.046 [Test worker] ERROR AuthenticationService -- Error while processing email jane.doe@example.org
+  <testcase name="testSignup()" classname="com.walletapplication.payme.service.AuthenticationServiceTest" time="0.003"/>
+  <system-out><![CDATA[16:10:12.738 [Test worker] INFO AuthenticationService -- Wallet created with wallet id: 1
+16:10:12.750 [Test worker] ERROR AuthenticationService -- Error while processing email, invalid email
+16:10:12.756 [Test worker] ERROR AuthenticationService -- Error while processing email jane.doe@example.org
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

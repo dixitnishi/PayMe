@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.model.exceptions.GlobalExceptionHandlerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:28:10" hostname="U-nishi" time="0.026">
+<testsuite name="com.walletapplication.payme.model.exceptions.GlobalExceptionHandlerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:10" hostname="U-nishi" time="0.021">
   <properties/>
-  <testcase name="testHandleGlobalException()" classname="com.walletapplication.payme.model.exceptions.GlobalExceptionHandlerTest" time="0.026"/>
+  <testcase name="testHandleGlobalException()" classname="com.walletapplication.payme.model.exceptions.GlobalExceptionHandlerTest" time="0.021"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

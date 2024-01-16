@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:28:10" hostname="U-nishi" time="0.007">
+<testsuite name="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:10" hostname="U-nishi" time="0.014">
   <properties/>
   <testcase name="fullConstructor()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.001"/>
   <testcase name="setTimeStamp_shouldSetTimeStamp()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.001"/>
-  <testcase name="getTimeStamp_shouldReturnTimeStamp()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.0"/>
-  <testcase name="setMessage_shouldSetMessage()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.0"/>
-  <testcase name="getCode_shouldReturnCode()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.0"/>
-  <testcase name="constructorWithMessage()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.001"/>
+  <testcase name="getTimeStamp_shouldReturnTimeStamp()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.002"/>
+  <testcase name="setMessage_shouldSetMessage()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.002"/>
+  <testcase name="getCode_shouldReturnCode()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.001"/>
+  <testcase name="constructorWithMessage()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.0"/>
   <testcase name="setCode_shouldSetCode()" classname="com.walletapplication.payme.model.exceptions.GlobalWalletExceptionTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
