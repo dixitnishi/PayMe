@@ -107,9 +107,6 @@ class AuthenticationServiceTest {
         verify(request).getPassword();
     }
 
-    /**
-     * Method under test: {@link AuthenticationService#signup(AccountRequest)}
-     */
     @Test
     void testSignup() {
         // Arrange
@@ -121,9 +118,7 @@ class AuthenticationServiceTest {
         verify(accountRepo).existsByEmail(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link AuthenticationService#signup(AccountRequest)}
-     */
+
     @Test
     void testSignup2() {
         // Arrange
@@ -156,9 +151,7 @@ class AuthenticationServiceTest {
         assertEquals(0.0d, actualSignupResult.getBalance().doubleValue());
     }
 
-    /**
-     * Method under test: {@link AuthenticationService#signup(AccountRequest)}
-     */
+
     @Test
     void testSignup3() {
         // Arrange
@@ -173,9 +166,7 @@ class AuthenticationServiceTest {
         verify(passwordEncoder).encode(Mockito.<CharSequence>any());
     }
 
-    /**
-     * Method under test: {@link AuthenticationService#signup(AccountRequest)}
-     */
+
     @Test
     void testSignup4() {
         // Arrange, Act and Assert

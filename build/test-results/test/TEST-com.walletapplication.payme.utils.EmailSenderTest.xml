@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.utils.EmailSenderTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-01-15T15:52:39" hostname="nishi" time="0.062">
-  <properties/>
-  <testcase name="testSendEmail()" classname="com.walletapplication.payme.utils.EmailSenderTest" time="0.062"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

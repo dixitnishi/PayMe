@@ -218,11 +218,8 @@ class AccountOpsTest {
 
     @Test
     void testGetAccount2() {
-        // Arrange
         Optional<Account> emptyResult = Optional.empty();
         when(accountRepo.findById(Mockito.<String>any())).thenReturn(emptyResult);
-
-        // Act and Assert
         assertThrows(EntityNotFoundException.class, () -> accountOps.getAccount("42"));
         verify(accountRepo).findById(Mockito.<String>any());
     }
@@ -230,10 +227,7 @@ class AccountOpsTest {
 
     @Test
     void testGetAccount3() {
-        // Arrange
         when(accountRepo.findById(Mockito.<String>any())).thenThrow(new EntityNotFoundException());
-
-        // Act and Assert
         assertThrows(EntityNotFoundException.class, () -> accountOps.getAccount("42"));
         verify(accountRepo).findById(Mockito.<String>any());
     }

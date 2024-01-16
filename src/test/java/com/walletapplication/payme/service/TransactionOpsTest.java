@@ -54,9 +54,6 @@ class TransactionOpsTest {
     @MockBean
     private TransactionRepo transactionRepo;
 
-    /**
-     * Method under test: {@link TransactionOps#sendMoney(TransactionRequest)}
-     */
     @Test
     void testSendMoney() {
         // Arrange, Act and Assert
@@ -64,9 +61,6 @@ class TransactionOpsTest {
                 () -> transactionOps.sendMoney(new TransactionRequest(TRANSACTIONTYPE.CREDIT, "42", "42", 10.0d)));
     }
 
-    /**
-     * Method under test: {@link TransactionOps#sendMoney(TransactionRequest)}
-     */
     @Test
     void testSendMoney2() {
         // Arrange
@@ -121,9 +115,6 @@ class TransactionOpsTest {
         assertEquals("SUCCESS", actualSendMoneyResult.getStatus());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#sendMoney(TransactionRequest)}
-     */
     @Test
     void testSendMoney3() {
         // Arrange
@@ -163,9 +154,6 @@ class TransactionOpsTest {
         verify(accountRepo, atLeast(1)).save(Mockito.<Account>any());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#sendMoney(TransactionRequest)}
-     */
     @Test
     void testSendMoney4() {
         // Arrange
@@ -185,9 +173,6 @@ class TransactionOpsTest {
         verify(accountRepo, atLeast(1)).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#sendMoney(TransactionRequest)}
-     */
     @Test
     void testSendMoney5() {
         // Arrange
@@ -200,9 +185,6 @@ class TransactionOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#addMoney(TransactionRequest)}
-     */
     @Test
     void testAddMoney() {
         // Arrange
@@ -257,9 +239,6 @@ class TransactionOpsTest {
         assertEquals("SUCCESS", actualAddMoneyResult.getStatus());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#addMoney(TransactionRequest)}
-     */
     @Test
     void testAddMoney2() {
         // Arrange
@@ -299,9 +278,7 @@ class TransactionOpsTest {
         verify(transactionRepo).save(Mockito.<Transaction>any());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#addMoney(TransactionRequest)}
-     */
+
     @Test
     void testAddMoney3() {
         // Arrange
@@ -314,9 +291,7 @@ class TransactionOpsTest {
         verify(accountRepo).findById(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#addMoney(TransactionRequest)}
-     */
+
     @Test
     void testAddMoney4() {
         // Arrange, Act and Assert
@@ -324,9 +299,7 @@ class TransactionOpsTest {
                 () -> transactionOps.addMoney(new TransactionRequest(TRANSACTIONTYPE.CREDIT, "42", "42", 0.0d)));
     }
 
-    /**
-     * Method under test: {@link TransactionOps#getTransactions(String)}
-     */
+
     @Test
     void testGetTransactions() {
         // Arrange
@@ -342,9 +315,7 @@ class TransactionOpsTest {
         assertSame(transactionList, actualTransactions);
     }
 
-    /**
-     * Method under test: {@link TransactionOps#getTransactions(String)}
-     */
+
     @Test
     void testGetTransactions2() {
         // Arrange
@@ -356,9 +327,7 @@ class TransactionOpsTest {
         verify(transactionRepo).findByAssociatedAccount(Mockito.<String>any());
     }
 
-    /**
-     * Method under test: {@link TransactionOps#getCashbacks(String)}
-     */
+
     @Test
     void testGetCashbacks() {
         // Arrange
@@ -374,9 +343,7 @@ class TransactionOpsTest {
         assertSame(cashbackList, actualCashbacks);
     }
 
-    /**
-     * Method under test: {@link TransactionOps#getCashbacks(String)}
-     */
+
     @Test
     void testGetCashbacks2() {
         // Arrange
@@ -386,45 +353,5 @@ class TransactionOpsTest {
         // Act and Assert
         assertThrows(InvalidDetailsEnteredException.class, () -> transactionOps.getCashbacks("3"));
         verify(cashbackRepo).findByAccountNumber(Mockito.<String>any());
-    }
-
-    /**
-     * Method under test: {@link TransactionOps#calculateCashback(double)}
-     */
-    @Test
-    void testCalculateCashback() {
-        // TODO: Complete this test.
-        //   Reason: R002 Missing observers.
-        //   Diffblue Cover was unable to create an assertion.
-        //   Add getters for the following fields or make them package-private:
-        //     TransactionOps.accountRepo
-        //     TransactionOps.cashbackRepo
-        //     TransactionOps.emailService
-        //     TransactionOps.random
-        //     TransactionOps.transactionMapper
-        //     TransactionOps.transactionRepo
-
-        // Arrange and Act
-        transactionOps.calculateCashback(10.0d);
-    }
-
-    /**
-     * Method under test: {@link TransactionOps#generateTransactionId()}
-     */
-    @Test
-    void testGenerateTransactionId() {
-        // TODO: Complete this test.
-        //   Reason: R002 Missing observers.
-        //   Diffblue Cover was unable to create an assertion.
-        //   Add getters for the following fields or make them package-private:
-        //     TransactionOps.accountRepo
-        //     TransactionOps.cashbackRepo
-        //     TransactionOps.emailService
-        //     TransactionOps.random
-        //     TransactionOps.transactionMapper
-        //     TransactionOps.transactionRepo
-
-        // Arrange and Act
-        transactionOps.generateTransactionId();
     }
 }

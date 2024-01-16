@@ -12,8 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 
-@Slf4j
-
+@Slf4j(topic="EmailService")
 @Service
 public class EmailService {
     @Autowired
@@ -21,7 +20,7 @@ public class EmailService {
 
     public void sendEmail(EmailDetails emailDetails) {
         String emailDetailsJson = convertEmailDetailsToJson(emailDetails);
-        log.info("Pushing the email details to redis queue. Email Details: {}",emailDetailsJson);
+        log.info("Pushing the email details to redis queue. Email Details: {}", emailDetailsJson);
         redisTemplate.opsForList().leftPush("emailQueue", emailDetailsJson);
     }
 

@@ -25,12 +25,9 @@ public class AuthEntryPointJwt implements AuthenticationEntryPoint {
     @Autowired
     private ControllerPathValidator controllerPathValidator;
 
-
-
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         log.error("Unauthorized error: {}", authException.getMessage());
-
         String requestedPath = request.getServletPath();
         if (!controllerPathValidator.isValidPath(requestedPath)) {
             handleResourceNotFound(response, requestedPath);

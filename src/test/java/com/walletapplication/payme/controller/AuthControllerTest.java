@@ -31,18 +31,10 @@ public class AuthControllerTest {
         AccountRequest accountRequest = new AccountRequest("John", "john@example.com", "password");
         AccountResponse mockAccountResponse = new AccountResponse(
                 LocalDateTime.now(), "123", "Details fetched successfully", "John", "john@example.com", 0.00, "mockedToken");
-
-        // Mock the service behavior
         when(authenticationServiceMock.signup(accountRequest)).thenReturn(mockAccountResponse);
-
-        // Act
         ResponseEntity<AccountResponse> responseEntity = authController.signup(accountRequest);
-
-        // Assert
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(mockAccountResponse, responseEntity.getBody());
-
-        // Verify that the method was called with the correct parameter
         verify(authenticationServiceMock, times(1)).signup(accountRequest);
     }
 
@@ -50,18 +42,10 @@ public class AuthControllerTest {
     public void testLogin() {
         LoginRequest loginRequest = new LoginRequest("john@example.com", "password");
         LoginResponse mockLoginResponse = new LoginResponse("mockedToken","123");
-
-        // Mock the service behavior
         when(authenticationServiceMock.login(loginRequest)).thenReturn(mockLoginResponse);
-
-        // Act
         ResponseEntity<LoginResponse> responseEntity = authController.login(loginRequest);
-
-        // Assert
         assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
         assertEquals(mockLoginResponse, responseEntity.getBody());
-
-        // Verify that the method was called with the correct parameter
         verify(authenticationServiceMock, times(1)).login(loginRequest);
     }
 }
