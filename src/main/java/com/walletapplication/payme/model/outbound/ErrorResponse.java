@@ -1,15 +1,15 @@
 package com.walletapplication.payme.model.outbound;
 
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class ErrorResponse {
     private LocalDateTime timeStamp;
     private String message;

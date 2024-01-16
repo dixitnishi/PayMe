@@ -1,14 +1,12 @@
 package com.walletapplication.payme.model.outbound;
 
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Builder
 @AllArgsConstructor
 @Getter
+@Setter
 @NoArgsConstructor
 public class EmailDetails {
 

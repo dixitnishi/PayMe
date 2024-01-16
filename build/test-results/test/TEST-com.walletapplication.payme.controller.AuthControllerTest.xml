@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.walletapplication.payme.controller.AuthControllerTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:28:10" hostname="U-nishi" time="0.013">
+  <properties/>
+  <testcase name="testLogin()" classname="com.walletapplication.payme.controller.AuthControllerTest" time="0.006"/>
+  <testcase name="testSignup()" classname="com.walletapplication.payme.controller.AuthControllerTest" time="0.004"/>
+  <system-out><![CDATA[15:58:10.105 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.walletapplication.payme.controller.AuthControllerTest]: AuthControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

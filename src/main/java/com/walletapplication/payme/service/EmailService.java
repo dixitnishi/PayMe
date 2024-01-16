@@ -24,7 +24,7 @@ public class EmailService {
         redisTemplate.opsForList().leftPush("emailQueue", emailDetailsJson);
     }
 
-    private String convertEmailDetailsToJson(EmailDetails emailDetails){
+    public String convertEmailDetailsToJson(EmailDetails emailDetails){
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             return objectMapper.writeValueAsString(emailDetails);

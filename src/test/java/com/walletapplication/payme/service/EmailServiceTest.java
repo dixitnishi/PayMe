@@ -1,9 +1,11 @@
 package com.walletapplication.payme.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.walletapplication.payme.model.exceptions.GlobalErrorCode;
 import com.walletapplication.payme.model.exceptions.GlobalWalletException;
 import com.walletapplication.payme.model.outbound.EmailDetails;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -15,13 +17,15 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 import java.time.LocalDateTime;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class EmailServiceTest {
+
+    @Mock
+    private ObjectMapper objectMapper;
 
     @Mock
     private StringRedisTemplate redisTemplate;
@@ -44,7 +48,7 @@ class EmailServiceTest {
     }
 
     @Test
-    void sendEmail_shouldThrowExceptionOnJsonProcessingError() throws Exception {
+    void sendEmail_shouldThrowExceptionOnJsonProcessingError(){
         // Arrange
         EmailDetails emailDetails = new EmailDetails("recipient@example.com", "Subject", "Body");
         when(redisTemplate.opsForList()).thenReturn(listOperations);
@@ -52,6 +56,6 @@ class EmailServiceTest {
 
         // Act & Assert
         GlobalWalletException exception = assertThrows(GlobalWalletException.class, () -> emailService.sendEmail(emailDetails));
-        assertEquals(GlobalErrorCode.OBJECT_CONVERSION_ERROR, exception.getCode());
+        Assertions.assertEquals(GlobalErrorCode.OBJECT_CONVERSION_ERROR, exception.getCode());
     }
 }

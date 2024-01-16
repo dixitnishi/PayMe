@@ -22,6 +22,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 @EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecConfig {
+    
     private final AuthEntryPointJwt authEntryPointJwt;
     private final UserDetailsServiceImpl userDetailsService;
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.walletapplication.payme.security.UserDetailsServiceImplTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:28:11" hostname="U-nishi" time="0.146">
+  <properties/>
+  <testcase name="loadUserByUsername_shouldThrowExceptionWhenUserNotFound()" classname="com.walletapplication.payme.security.UserDetailsServiceImplTest" time="0.142"/>
+  <testcase name="loadUserByUsername_shouldReturnUserDetails()" classname="com.walletapplication.payme.security.UserDetailsServiceImplTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

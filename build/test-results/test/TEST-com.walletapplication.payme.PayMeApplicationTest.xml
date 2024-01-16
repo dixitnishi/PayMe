@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.walletapplication.payme.PayMeApplicationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:28:08" hostname="U-nishi" time="0.044">
+  <properties/>
+  <testcase name="corsConfigurer_shouldConfigureCorsMappings()" classname="com.walletapplication.payme.PayMeApplicationTest" time="0.042"/>
+  <testcase name="corsConfigurer_shouldReturnWebMvcConfigurer()" classname="com.walletapplication.payme.PayMeApplicationTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

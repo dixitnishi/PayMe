@@ -162,7 +162,7 @@ public class TransactionOps {
 
         Transaction transaction = transactionMapper.toTransaction(transactionRequest);
         transaction.setTransactionTime(LocalDateTime.now());
-        transaction.setDescription("Congrats you received a cashback of RS."+cashback+".");
+        transaction.setDescription("Money Added To Wallet");
         transaction.setReceiverAccountNumber("NA");
         transaction.setTransactionId(transactionId);
         transaction.setAssociatedAccount(account.getAccountNumber());
