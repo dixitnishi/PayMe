@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.model.entity.CashbackTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:10" hostname="U-nishi" time="0.004">
+<testsuite name="com.walletapplication.payme.model.entity.CashbackTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:25" hostname="U-nishi" time="0.002">
   <properties/>
   <testcase name="testCreateCashback()" classname="com.walletapplication.payme.model.entity.CashbackTest" time="0.0"/>
   <testcase name="testCashbackBuilder()" classname="com.walletapplication.payme.model.entity.CashbackTest" time="0.002"/>

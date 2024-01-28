@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.security.UserDetailsImplTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:12" hostname="U-nishi" time="0.009">
+<testsuite name="com.walletapplication.payme.security.UserDetailsImplTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:26" hostname="U-nishi" time="0.004">
   <properties/>
-  <testcase name="isEnabled_shouldAlwaysReturnTrue()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.003"/>
-  <testcase name="build_shouldCreateUserDetailsImplFromAccount()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.002"/>
-  <testcase name="isAccountNonLocked_shouldAlwaysReturnTrue()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.0"/>
+  <testcase name="isEnabled_shouldAlwaysReturnTrue()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.001"/>
+  <testcase name="build_shouldCreateUserDetailsImplFromAccount()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.001"/>
+  <testcase name="isAccountNonLocked_shouldAlwaysReturnTrue()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.001"/>
   <testcase name="getUsername_shouldReturnEmail()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.0"/>
   <testcase name="isAccountNonExpired_shouldAlwaysReturnTrue()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.0"/>
   <testcase name="isCredentialsNonExpired_shouldAlwaysReturnTrue()" classname="com.walletapplication.payme.security.UserDetailsImplTest" time="0.0"/>

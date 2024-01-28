@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.model.outbound.AccountResponseTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:10" hostname="U-nishi" time="0.009">
+<testsuite name="com.walletapplication.payme.model.outbound.AccountResponseTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:25" hostname="U-nishi" time="0.002">
   <properties/>
-  <testcase name="testGettersAndSetters()" classname="com.walletapplication.payme.model.outbound.AccountResponseTest" time="0.001"/>
+  <testcase name="testGettersAndSetters()" classname="com.walletapplication.payme.model.outbound.AccountResponseTest" time="0.0"/>
   <testcase name="testNoArgsConstructor()" classname="com.walletapplication.payme.model.outbound.AccountResponseTest" time="0.001"/>
-  <testcase name="testBuilder()" classname="com.walletapplication.payme.model.outbound.AccountResponseTest" time="0.003"/>
-  <testcase name="testAllArgsConstructor()" classname="com.walletapplication.payme.model.outbound.AccountResponseTest" time="0.001"/>
+  <testcase name="testBuilder()" classname="com.walletapplication.payme.model.outbound.AccountResponseTest" time="0.001"/>
+  <testcase name="testAllArgsConstructor()" classname="com.walletapplication.payme.model.outbound.AccountResponseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

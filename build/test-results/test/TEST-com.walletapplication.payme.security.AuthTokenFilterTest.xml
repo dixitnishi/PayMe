@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.security.AuthTokenFilterTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:12" hostname="U-nishi" time="0.017">
+<testsuite name="com.walletapplication.payme.security.AuthTokenFilterTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:26" hostname="U-nishi" time="0.106">
   <properties/>
-  <testcase name="doFilterInternalWhenJwtUtilsValidateJwtTokenJwt()" classname="com.walletapplication.payme.security.AuthTokenFilterTest" time="0.004"/>
-  <testcase name="doFilterInternalWhenJwtUtilsValidateJwtTokenJwtAndCaughtException()" classname="com.walletapplication.payme.security.AuthTokenFilterTest" time="0.008"/>
-  <testcase name="doFilterInternalWhenHeaderAuthNotStartsWithBearer_AndJwtIsNull()" classname="com.walletapplication.payme.security.AuthTokenFilterTest" time="0.003"/>
-  <system-out><![CDATA[16:10:12.193 [Test worker] ERROR AuthTokenFilter -- Cannot set user authentication: {}
+  <testcase name="doFilterInternalWhenJwtUtilsValidateJwtTokenJwt()" classname="com.walletapplication.payme.security.AuthTokenFilterTest" time="0.092"/>
+  <testcase name="doFilterInternalWhenJwtUtilsValidateJwtTokenJwtAndCaughtException()" classname="com.walletapplication.payme.security.AuthTokenFilterTest" time="0.01"/>
+  <testcase name="doFilterInternalWhenHeaderAuthNotStartsWithBearer_AndJwtIsNull()" classname="com.walletapplication.payme.security.AuthTokenFilterTest" time="0.002"/>
+  <system-out><![CDATA[13:55:26.142 [Test worker] ERROR AuthTokenFilter -- Cannot set user authentication: {}
 java.lang.RuntimeException: null
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

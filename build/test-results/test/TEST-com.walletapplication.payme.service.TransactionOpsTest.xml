@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.service.TransactionOpsTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:13" hostname="U-nishi" time="0.08">
+<testsuite name="com.walletapplication.payme.service.TransactionOpsTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:27" hostname="U-nishi" time="0.039">
   <properties/>
-  <testcase name="testGetTransactions2()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.004"/>
-  <testcase name="testGetTransactions()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.004"/>
-  <testcase name="testGetCashbacks2()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.004"/>
-  <testcase name="testAddMoney()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.008"/>
-  <testcase name="testSendMoney2()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.012"/>
-  <testcase name="testSendMoney3()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.004"/>
-  <testcase name="testSendMoney4()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.004"/>
-  <testcase name="testSendMoney5()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.003"/>
+  <testcase name="testGetTransactions2()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.001"/>
+  <testcase name="testGetTransactions()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.002"/>
+  <testcase name="testGetCashbacks2()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.002"/>
+  <testcase name="testAddMoney()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.005"/>
+  <testcase name="testSendMoney2()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.007"/>
+  <testcase name="testSendMoney4()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.002"/>
+  <testcase name="testSendMoney5()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.001"/>
   <testcase name="testAddMoney2()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.004"/>
-  <testcase name="testAddMoney3()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.003"/>
-  <testcase name="testAddMoney4()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.002"/>
-  <testcase name="testSendMoney()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.005"/>
-  <testcase name="testGetCashbacks()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.003"/>
-  <system-out><![CDATA[16:10:13.759 [Test worker] INFO TransactionOps -- Transaction saved, transactionId: cca17234-11f3-4d52-bb9b-48639f4c60a5
-16:10:13.769 [Test worker] INFO TransactionOps -- Transaction saved, transactionId: 24aa57f4-60e4-4689-ac03-1a6bd296cd5a
-16:10:13.775 [Test worker] INFO TransactionOps -- Emails triggered to respective sender and receivers email id
-16:10:13.810 [Test worker] ERROR TransactionOps -- Receiver wallet: 42 and sender wallet: 42 can't be same
+  <testcase name="testAddMoney3()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.002"/>
+  <testcase name="testAddMoney4()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.0"/>
+  <testcase name="testSendMoney()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.002"/>
+  <testcase name="testGetCashbacks()" classname="com.walletapplication.payme.service.TransactionOpsTest" time="0.002"/>
+  <system-out><![CDATA[13:55:27.126 [Test worker] INFO TransactionOps -- Transaction saved, transactionId: 03134b60-8f61-43ec-9c6b-3482a5002725
+13:55:27.131 [Test worker] INFO TransactionOps -- Transaction saved, transactionId: f4922021-5f32-4fcf-ad39-ef2814ab1716
+13:55:27.135 [Test worker] INFO TransactionOps -- Emails triggered to respective sender and receivers email id
+13:55:27.153 [Test worker] ERROR TransactionOps -- Receiver wallet: 42 and sender wallet: 42 can't be same
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

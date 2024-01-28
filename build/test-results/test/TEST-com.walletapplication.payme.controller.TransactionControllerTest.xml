@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.controller.TransactionControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:10" hostname="U-nishi" time="0.032">
+<testsuite name="com.walletapplication.payme.controller.TransactionControllerTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:25" hostname="U-nishi" time="0.017">
   <properties/>
-  <testcase name="testGetTransactions()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.009"/>
-  <testcase name="testAddMoney()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.005"/>
-  <testcase name="testSendMoney()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.003"/>
-  <testcase name="testGetCashbacks()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.003"/>
-  <system-out><![CDATA[16:10:10.721 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.walletapplication.payme.controller.TransactionControllerTest]: TransactionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+  <testcase name="testGetTransactions()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.004"/>
+  <testcase name="testAddMoney()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.003"/>
+  <testcase name="testSendMoney()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.002"/>
+  <testcase name="testGetCashbacks()" classname="com.walletapplication.payme.controller.TransactionControllerTest" time="0.002"/>
+  <system-out><![CDATA[13:55:25.559 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.walletapplication.payme.controller.TransactionControllerTest]: TransactionControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.walletapplication.payme.service.EmailServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-16T10:40:12" hostname="U-nishi" time="0.594">
+<testsuite name="com.walletapplication.payme.service.EmailServiceTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:26" hostname="U-nishi" time="0.398">
   <properties/>
-  <testcase name="sendEmail_shouldThrowExceptionOnJsonProcessingError()" classname="com.walletapplication.payme.service.EmailServiceTest" time="0.589"/>
-  <testcase name="sendEmail_shouldPushToRedisQueue()" classname="com.walletapplication.payme.service.EmailServiceTest" time="0.004"/>
-  <system-out><![CDATA[16:10:13.357 [Test worker] INFO EmailService -- Pushing the email details to redis queue. Email Details: {"receiverEmail":"recipient@example.com","subject":"Subject","body":"Body"}
-16:10:13.363 [Test worker] INFO EmailService -- Pushing the email details to redis queue. Email Details: {"receiverEmail":"recipient@example.com","subject":"Subject","body":"Body"}
+  <testcase name="sendEmail_shouldThrowExceptionOnJsonProcessingError()" classname="com.walletapplication.payme.service.EmailServiceTest" time="0.394"/>
+  <testcase name="sendEmail_shouldPushToRedisQueue()" classname="com.walletapplication.payme.service.EmailServiceTest" time="0.003"/>
+  <system-out><![CDATA[13:55:26.897 [Test worker] INFO EmailService -- Pushing the email details to redis queue. Email Details: {"receiverEmail":"recipient@example.com","subject":"Subject","body":"Body"}
+13:55:26.900 [Test worker] INFO EmailService -- Pushing the email details to redis queue. Email Details: {"receiverEmail":"recipient@example.com","subject":"Subject","body":"Body"}
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

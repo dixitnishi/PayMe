@@ -29,9 +29,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         final Account account  = accountRepo.findByEmail(email)
                 .orElseThrow(()-> new UsernameNotFoundException(MessageFormat.format(ERROR_WALLET_NOT_FOUND,email)));
-
-
-
         return UserDetailsImpl.build(account);
     }
 }

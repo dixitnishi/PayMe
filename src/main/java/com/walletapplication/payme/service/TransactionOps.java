@@ -20,6 +20,7 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.event.TransactionalEventListener;
 
 
 import java.text.DecimalFormat;
@@ -53,10 +54,10 @@ public class TransactionOps {
 
     private static final DecimalFormat df = new DecimalFormat("0.00");
 
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public TransactionResponse sendMoney(TransactionRequest transactionRequest) {
-        if(transactionRequest.getSenderAccountNumber().equals(transactionRequest.getReceiverAccountNumber())){
-            log.error("Receiver wallet: {} and sender wallet: {} can't be same",transactionRequest.getReceiverAccountNumber(),transactionRequest.getSenderAccountNumber());
+        if (transactionRequest.getSenderAccountNumber().equals(transactionRequest.getReceiverAccountNumber())) {
+            log.error("Receiver wallet: {} and sender wallet: {} can't be same", transactionRequest.getReceiverAccountNumber(), transactionRequest.getSenderAccountNumber());
             throw new InvalidDetailsEnteredException("Receiver and sender account number can't be same");
         }
         Account senderAccount = validateAccountExists(transactionRequest.getSenderAccountNumber());
@@ -65,7 +66,7 @@ public class TransactionOps {
         String transactionId = generateTransactionId();
         validateAndTransferAmount(senderAccount, receiverAccount, transactionRequest.getAmount(), cashback);
         saveTransactions(senderAccount, receiverAccount, transactionRequest, transactionId);
-        log.info("Transaction saved, transactionId: {}",transactionId);
+        log.info("Transaction saved, transactionId: {}", transactionId);
         saveCashback(senderAccount, cashback, transactionId, false);
 
         //      Sending the async email sending task
@@ -76,7 +77,7 @@ public class TransactionOps {
                 .build());
         emailService.sendEmail(EmailDetails.builder()
                 .receiverEmail(senderAccount.getEmail())
-                .body("Amount RS." + transactionRequest.getAmount() + " send to " + receiverAccount.getAccountNumber()+" and you received a cashback of RS."+cashback+" which is added to your wallet balance.")
+                .body("Amount RS." + transactionRequest.getAmount() + " send to " + receiverAccount.getAccountNumber() + " and you received a cashback of RS." + cashback + " which is added to your wallet balance.")
                 .subject("Amount debited")
                 .build());
 
@@ -85,7 +86,7 @@ public class TransactionOps {
         return TransactionResponse
                 .builder()
                 .status("SUCCESS")
-                .description("Amount transferred to wallet " + receiverAccount.getAccountNumber()+". Congrats cashback received Rs."+cashback+".")
+                .description("Amount transferred to wallet " + receiverAccount.getAccountNumber() + ". Congrats cashback received Rs." + cashback + ".")
                 .cashbackReceived(cashback)
                 .timestamp(LocalDateTime.now())
                 .build();
@@ -105,13 +106,14 @@ public class TransactionOps {
         cashbackRepo.save(cashbackObject);
     }
 
-    private void saveTransactions(Account senderAccount, Account receiverAccount, TransactionRequest transactionRequest, String transactionId) {
+
+    public void saveTransactions(Account senderAccount, Account receiverAccount, TransactionRequest transactionRequest, String transactionId) {
         Transaction transactionSenderPrespec = transactionMapper.toTransaction(transactionRequest);
         transactionSenderPrespec.setDescription("Amount transferred to wallet " + receiverAccount.getAccountNumber());
         transactionSenderPrespec.setTransactionTime(LocalDateTime.now());
         transactionSenderPrespec.setTransactionId(transactionId);
         transactionSenderPrespec.setAssociatedAccount(senderAccount.getAccountNumber());
-        transactionRepo.save(transactionSenderPrespec);
+
 
         Transaction transactionReceiverPrespec = transactionMapper.toTransaction(transactionRequest);
         transactionReceiverPrespec.setDescription("Amount received from wallet " + senderAccount.getAccountNumber());
@@ -120,9 +122,12 @@ public class TransactionOps {
         transactionReceiverPrespec.setTransactionId(transactionId);
         transactionReceiverPrespec.setAssociatedAccount(receiverAccount.getAccountNumber());
         transactionRepo.save(transactionReceiverPrespec);
+        transactionRepo.save(transactionSenderPrespec);
+
     }
 
-    private void validateAndTransferAmount(Account senderAccount, Account receiverAccount, double transferAmount, double cashback) {
+
+    public void validateAndTransferAmount(Account senderAccount, Account receiverAccount, double transferAmount, double cashback) {
         double intialSenderAccBal = senderAccount.getBalance();
         double intialReceiverAccBal = receiverAccount.getBalance();
         if (transferAmount > intialSenderAccBal) {
@@ -167,7 +172,7 @@ public class TransactionOps {
         transaction.setTransactionId(transactionId);
         transaction.setAssociatedAccount(account.getAccountNumber());
         transactionRepo.save(transaction);
-        log.info("Transaction saved, transactionId: {}",transactionId);
+        log.info("Transaction saved, transactionId: {}", transactionId);
 
 //      Saving Cashback in collection
         saveCashback(account, cashback, transactionId, true);
@@ -177,13 +182,13 @@ public class TransactionOps {
         emailService.sendEmail(EmailDetails.builder()
                 .receiverEmail(account.getEmail())
                 .body(transaction.getDescription())
-                .subject("Money Added To Wallet. Amount Rs."+amountToBeAdded+" you received a cashback of Rs."+cashback+". \n Thanks!")
+                .subject("Money Added To Wallet. Amount Rs." + amountToBeAdded + " you received a cashback of Rs." + cashback + ". \n Thanks!")
                 .build());
 
 
         return TransactionResponse.builder()
                 .cashbackReceived(cashback)
-                .description("Money Added To Wallet. Amount Rs."+amountToBeAdded+" you received a cashback of Rs."+cashback+". \n Thanks!")
+                .description("Money Added To Wallet. Amount Rs." + amountToBeAdded + " you received a cashback of Rs." + cashback + ". \n Thanks!")
                 .timestamp(LocalDateTime.now())
                 .status("SUCCESS")
                 .build();

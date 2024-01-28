@@ -151,3 +151,7 @@ Ysrc/test/java/com/walletapplication/payme/model/exceptions/GlobalWalletExceptio
 Msrc/test/java/com/walletapplication/payme/security/AuthEntryPointJwtTest.java,9/0/90ecbeb8ae3ff75d7be57384436ce70ce1b675e1
 {
 Ksrc/test/java/com/walletapplication/payme/security/AuthTokenFilterTest.java,b/1/b1ed10f30353e8efe8d0dcbdddfb387c5b881a20
+k
+;src/main/java/com/walletapplication/payme/utils/Config.java,e/b/ebafa3b299321488cc538660d7f328d1f18459c6
+p
+@src/main/java/com/walletapplication/payme/utils/MongoConfig.java,b/5/b53640f0df828101997c17e81c749b49af97a9af

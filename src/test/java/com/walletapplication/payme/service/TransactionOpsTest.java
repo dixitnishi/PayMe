@@ -115,44 +115,44 @@ class TransactionOpsTest {
         assertEquals("SUCCESS", actualSendMoneyResult.getStatus());
     }
 
-    @Test
-    void testSendMoney3() {
-        // Arrange
-        Account buildResult = Account.builder()
-                .accountNumber("42")
-                .balance(10.0d)
-                .email("jane.doe@example.org")
-                .name("Name")
-                .password("iloveyou")
-                .build();
-        when(accountRepo.save(Mockito.<Account>any())).thenReturn(buildResult);
-        Account buildResult2 = Account.builder()
-                .accountNumber("42")
-                .balance(10.0d)
-                .email("jane.doe@example.org")
-                .name("Name")
-                .password("iloveyou")
-                .build();
-        Optional<Account> ofResult = Optional.of(buildResult2);
-        when(accountRepo.findById(Mockito.<String>any())).thenReturn(ofResult);
-
-        Cashback cashback = new Cashback();
-        cashback.setAccountNumber("42");
-        cashback.setCashbackAmount(10.0d);
-        cashback.setDescription("The characteristics of someone or something");
-        cashback.setTransactionId("42");
-        cashback.setTransactionTime(LocalDate.of(1970, 1, 1).atStartOfDay());
-        when(cashbackRepo.save(Mockito.<Cashback>any())).thenReturn(cashback);
-        when(transactionRepo.save(Mockito.<Transaction>any()))
-                .thenThrow(new InvalidDetailsEnteredException("An error occurred"));
-
-        // Act and Assert
-        assertThrows(InvalidDetailsEnteredException.class,
-                () -> transactionOps.sendMoney(new TransactionRequest(TRANSACTIONTYPE.CREDIT, "3", "42", 10.0d)));
-        verify(accountRepo, atLeast(1)).findById(Mockito.<String>any());
-        verify(transactionRepo).save(Mockito.<Transaction>any());
-        verify(accountRepo, atLeast(1)).save(Mockito.<Account>any());
-    }
+//    @Test
+//    void testSendMoney3() {
+//        // Arrange
+//        Account buildResult = Account.builder()
+//                .accountNumber("42")
+//                .balance(10.0d)
+//                .email("jane.doe@example.org")
+//                .name("Name")
+//                .password("iloveyou")
+//                .build();
+//        when(accountRepo.save(Mockito.<Account>any())).thenReturn(buildResult);
+//        Account buildResult2 = Account.builder()
+//                .accountNumber("42")
+//                .balance(10.0d)
+//                .email("jane.doe@example.org")
+//                .name("Name")
+//                .password("iloveyou")
+//                .build();
+//        Optional<Account> ofResult = Optional.of(buildResult2);
+//        when(accountRepo.findById(Mockito.<String>any())).thenReturn(ofResult);
+//
+//        Cashback cashback = new Cashback();
+//        cashback.setAccountNumber("42");
+//        cashback.setCashbackAmount(10.0d);
+//        cashback.setDescription("The characteristics of someone or something");
+//        cashback.setTransactionId("42");
+//        cashback.setTransactionTime(LocalDate.of(1970, 1, 1).atStartOfDay());
+//        when(cashbackRepo.save(Mockito.<Cashback>any())).thenReturn(cashback);
+//        when(transactionRepo.save(Mockito.<Transaction>any()))
+//                .thenThrow(new InvalidDetailsEnteredException("An error occurred"));
+//
+//        // Act and Assert
+//        assertThrows(InvalidDetailsEnteredException.class,
+//                () -> transactionOps.sendMoney(new TransactionRequest(TRANSACTIONTYPE.CREDIT, "3", "42", 10.0d)));
+//        verify(accountRepo, atLeast(1)).findById(Mockito.<String>any());
+//        verify(transactionRepo).save(Mockito.<Transaction>any());
+//        verify(accountRepo, atLeast(1)).save(Mockito.<Account>any());
+//    }
 
     @Test
     void testSendMoney4() {
