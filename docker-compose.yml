@@ -5,14 +5,12 @@ services:
     build: ./
     ports:
       - "8080:8080"
+  frontend-payme:
+    image: frontend-payme
+    ports:
+      - "3000:3000"
     depends_on:
-      - mongodb
-#  frontend-payme:
-#    image: frontend-payme
-#    ports:
-#      - "3000:3000"
-#    depends_on:
-#      - backend-payme
+      - backend-payme
   redis_queue:
     image: redis
     ports:
