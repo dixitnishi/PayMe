@@ -1,0 +1,29 @@
+logging:
+  level:
+    root: INFO
+spring:
+  server:
+    port:8080
+  data:
+    mongodb:
+      uri: mongodb+srv://nishidixit:1wOdVW1oJhtsMdGd@cluster0.bnagwrl.mongodb.net/PaymeApplication?retryWrites=true&w=majority
+      auto-index-creation: true
+    redis:
+      host: localhost
+      port: 6379
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: nishidixit23@gmail.com
+    password: uzyo qfde ranf ouah
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls.enable: true
+
+
+app:
+  security:
+    jwtExpirationMs: 600000
+    jwtSecret: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAKk8JeKApCCk8r+9skqvmJ71tlTQpPNAAJYaT9U/q9EllTLrIjrbaNirS6nH+TaJ7YVp/NUmAuaRHGHDldKeJl8CAwEAAQ==

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.walletapplication.payme.security.AuthEntryPointJwtTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-01-24T08:25:25" hostname="U-nishi" time="0.323">
+  <properties/>
+  <testcase name="commenceWhenStatusEqualsHttpServletResponseSC_UNAUTHORIZED()" classname="com.walletapplication.payme.security.AuthEntryPointJwtTest" time="0.318"/>
+  <testcase name="commenceWhenStatusNotEqualsHttpServletResponseSC_UNAUTHORIZED()" classname="com.walletapplication.payme.security.AuthEntryPointJwtTest" time="0.005"/>
+  <system-out><![CDATA[13:55:25.895 [Test worker] ERROR AuthEntryPointJwt -- Unauthorized error: 
+13:55:26.005 [Test worker] ERROR AuthEntryPointJwt -- Unauthorized error: String
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

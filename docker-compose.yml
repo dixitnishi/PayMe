@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  backend-payme:
+    build: ./
+    ports:
+      - "8080:8080"
+  frontend-payme:
+    image: frontend-payme
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend-payme
+  redis_queue:
+    image: redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-data:/data/redis
+
+
+
+volumes:
+  redis-data:
